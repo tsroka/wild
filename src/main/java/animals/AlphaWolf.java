@@ -12,6 +12,8 @@ public class AlphaWolf extends Animal{
     public Attack fight(char opponent) {
         switch(opponent){
             case 'B':
+                return Attack.SCISSORS;
+
             case 'L':
                 return Attack.SCISSORS;
             case 'S':

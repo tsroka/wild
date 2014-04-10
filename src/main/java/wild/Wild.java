@@ -5,22 +5,25 @@ import com.google.common.collect.ImmutableMap;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Map;
-
-import static org.apache.commons.lang3.StringUtils.defaultString;
 
 public class Wild {
 
-    private static final Class[] classes = {Bear.class, Lion.class, Stone.class, Wolf.class, AlphaWolf.class, BadWolf.class};
+    private static final Class[] classes = {Bear.class, Lion.class, Stone.class,
+//            Wolf.class,
+            AlphaWolf.class,
+//            HonorWolf.class,
+            MutaAlphaWolf.class
+    };
     private static final Map<Class<?>, Color> colorMap = ImmutableMap.<Class<?>, Color>builder()
             .put(AlphaWolf.class, Color.RED)
             .put(Wolf.class, Color.BLACK)
             .put(BadWolf.class, Color.BLUE)
+            .put(MutaAlphaWolf.class, Color.GREEN)
+            .put(HonorWolf.class, Color.BLUE)
             .build();
 
     public static final int MAP_SIZE = Math.round((float) Math.sqrt(classes.length + 3) * 20);
-
 
 
     public static void main(String[] args) {
@@ -32,9 +35,12 @@ public class Wild {
 
         for (Class c : classes)
             game.populate(c, 100);
+//        game.getBoard().get(1).get(1).add(new Lion());
+//        game.getBoard().get(1).get(2).add(new MutaAlphaWolf());
         stats.update();
 
         JFrame gui = new JFrame();
+        gui.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Container pane = gui.getContentPane();
 
         JLabel boardLabel = new JLabel();

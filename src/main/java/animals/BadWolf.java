@@ -9,6 +9,7 @@ public class BadWolf extends Animal {
         super('W');
     }
 
+
     @Override
     public Attack fight(char opponent) {
         switch (opponent) {
